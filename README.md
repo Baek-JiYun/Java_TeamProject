@@ -128,28 +128,28 @@ check = false;
 System.out.print("비밀번호 입력 >>");
 sc.next();
 for (int i = 0; i < dtos.size(); i++) {
-		if (dtos.get(i).getID().equals(loginID)) {
-				if (dtos.get(i).getPW().equals(pw)) {
-						check = true;
-						}
-			    }
-				}
-		if (check == true) {
-				System.out.println();
-				System.out.printf("%s님의 예매정보", loginID);
-				System.out.println();
+	if (dtos.get(i).getID().equals(loginID)) {
+	if (dtos.get(i).getPW().equals(pw)) {
+		check = true;
+		}
+	}
+}
+	if (check == true) {
+		System.out.println();
+		System.out.printf("%s님의 예매정보", loginID);
+		System.out.println();
 
-				for (int i = 0; i < dtos2.size(); i++) {
-						if (dtos2.get(i).getId().equals(loginID)) {
-                System.out.println("영화 제목 : " + dtos2.get(i).getTitle());
-								System.out.println("영화 시간 : " + dtos2.get(i).getMovie_Time().substring(11, 19));
-								System.out.println("좌석 번호 : " + dtos2.get(i).getSeat());
-						}else {
-								System.out.printf("%s님의 예매정보가 없습니다. 다시 확인해주세요", loginID);
-                break;
-									}
-								}
-							}
+		for (int i = 0; i < dtos2.size(); i++) {
+			if (dtos2.get(i).getId().equals(loginID)) {
+                		System.out.println("영화 제목 : " + dtos2.get(i).getTitle());
+				System.out.println("영화 시간 : " + dtos2.get(i).getMovie_Time().substring(11, 19));
+				System.out.println("좌석 번호 : " + dtos2.get(i).getSeat());
+			}else {
+				System.out.printf("%s님의 예매정보가 없습니다. 다시 확인해주세요", loginID);
+				break;
+				}
+			}
+		}
 ```
 
 # 😘 감사합니다.
