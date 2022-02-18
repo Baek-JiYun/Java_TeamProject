@@ -21,32 +21,32 @@
 
 ```java
 ///Main_Controller.java
-					check = false;
-					System.out.print("아이디 입력 >>");
-					id = sc.next();
-					System.out.print("비밀번호 입력 >>");
-					pw = sc.next();
-					dtos = service.getAllMembers();
-					for (int i = 0; i < dtos.size(); i++) {
-						if (dtos.get(i).getID().equals(id)) {
-							if (dtos.get(i).getPW().equals(pw)) {
-								check = true;
-							}
-						}
-					}
-          if (check == false) {
-						System.out.println("아이디 혹은 비밀번호를 다시 확인해주세요.");
-					}
-
-	public static void Menu() {
-		System.out.println("1.회원가입");
-		System.out.println("2.탈퇴");
-		System.out.println("3.로그인");
-		System.out.println("4.회원정보변경");
-		System.out.println("5.상영중인 영화정보");
-		System.out.println("0.종료");
-
+check = false;
+System.out.print("아이디 입력 >>");
+id = sc.next();
+System.out.print("비밀번호 입력 >>");
+pw = sc.next();
+dtos = service.getAllMembers();
+for (int i = 0; i < dtos.size(); i++) {
+	if (dtos.get(i).getID().equals(id)) {
+		if (dtos.get(i).getPW().equals(pw)) {
+			check = true;
+		}
 	}
+}
+	if (check == false) {
+		System.out.println("아이디 혹은 비밀번호를 다시 확인해주세요.");
+	}
+
+public static void Menu() {
+	System.out.println("1.회원가입");
+	System.out.println("2.탈퇴");
+	System.out.println("3.로그인");
+	System.out.println("4.회원정보변경");
+	System.out.println("5.상영중인 영화정보");
+	System.out.println("0.종료");
+
+}
 ```
 
 #### * 영화예매
@@ -57,64 +57,64 @@
 
 //나이제한
 for (int i = 0; i < dtos2.size(); i++) {
-		if (dtos2.get(i).getTitle() == title)
+	if (dtos2.get(i).getTitle() == title)
 		movie_age_limit = dtos2.get(i).getAge_Limit(); // movie_age_limit에 제한나이를 저장
-		}
+}
 
-		for (int i = 0; i < dtos.size(); i++) {
-		if (dtos.get(i).getID().equals(loginID))
-				member_age = dtos.get(i).getBorn(); // member_age에 회원 나이를 저장
-				}
+for (int i = 0; i < dtos.size(); i++) {
+	if (dtos.get(i).getID().equals(loginID))
+		member_age = dtos.get(i).getBorn(); // member_age에 회원 나이를 저장
+}
 
-		if (movie_age_limit > member_age) {
-				System.out.print("해당 영화의 상영등급은 " + movie_age_limit + "세 이상 관람가능이며\n");
-				System.out.print("회원님의 나이는 " + member_age + "세 이므로 예매하실 수 없습니다.\n");
-				break;
-				}
+if (movie_age_limit > member_age) {
+	System.out.print("해당 영화의 상영등급은 " + movie_age_limit + "세 이상 관람가능이며\n");
+	System.out.print("회원님의 나이는 " + member_age + "세 이므로 예매하실 수 없습니다.\n");
+	break;
+}
 ```
 
 ```java
 //영화 예매
 System.out.print("원하시는 시간을 입력해주세요 >>");
-		String timechoice = sc.next();
-		System.out.println();
-		System.out.println("|     S C R E E N     |");
-		System.out.println();
+String timechoice = sc.next();
+System.out.println();
+System.out.println("|     S C R E E N     |");
+System.out.println();
 
-		for (int i = 0; i < dtos2.size(); i++) {
-				if (dtos2.get(i).getTitle().equals(title)) {
-				if (dtos2.get(i).getMovie_Time().contains(timechoice)) {
-						timeSelect = dtos2.get(i).getMovie_Time(); // timeSelect에 영화시간정보 저장
-				if (dtos2.get(i).getReserved() != 0) { // 이미 예약돼있다면 숫자대신 *로 표시
-						System.out.print(" |*|");
-				} else if (dtos2.get(i).getReserved() == 0) {
-						int seat = dtos2.get(i).getSeat(); // db좌석정보를 seat에 저장
-				    if (seat == 6) { // 콘솔창 줄바꿈
-								System.out.println();
-								}
-				if (seat != 0) { // 더미시트판별
-							System.out.print(" |" + seat + "|");
-											}
-										}
-							}
-							System.out.println("\n");
-							System.out.print("'*'표시가 없는 자리번호를 입력해주세요 >>");
-							timeSelect = timeSelect.substring(11, 19);
-							seatchoice = sc.nextInt();
-							dtos2 = service2.UpdateMovieReserved(title, timeSelect, seatchoice, loginID);
+for (int i = 0; i < dtos2.size(); i++) {
+	if (dtos2.get(i).getTitle().equals(title)) {
+	if (dtos2.get(i).getMovie_Time().contains(timechoice)) {
+		timeSelect = dtos2.get(i).getMovie_Time(); // timeSelect에 영화시간정보 저장
+		if (dtos2.get(i).getReserved() != 0) { // 이미 예약돼있다면 숫자대신 *로 표시
+			System.out.print(" |*|");
+		} else if (dtos2.get(i).getReserved() == 0) {
+			int seat = dtos2.get(i).getSeat(); // db좌석정보를 seat에 저장
+			if (seat == 6) { // 콘솔창 줄바꿈
+				System.out.println();
+			}
+			if (seat != 0) { // 더미시트판별
+				System.out.print(" |" + seat + "|");
+			}
+		}
+	}
+	System.out.println("\n");
+	System.out.print("'*'표시가 없는 자리번호를 입력해주세요 >>");
+	timeSelect = timeSelect.substring(11, 19);
+	seatchoice = sc.nextInt();
+	dtos2 = service2.UpdateMovieReserved(title, timeSelect, seatchoice, loginID);
 
-							break;
+	break;
 ```
 
 #### * 영화예매조회
 
 ```java
-	public static void subMenu() {
-		System.out.println();
-		System.out.println("1.회원정보조회");
-		System.out.println("2.영화예매");
-		System.out.println("3.영화예매정보");
-		System.out.println("0.로그아웃");
+public static void subMenu() {
+	System.out.println();
+	System.out.println("1.회원정보조회");
+	System.out.println("2.영화예매");
+	System.out.println("3.영화예매정보");
+	System.out.println("0.로그아웃");
 	}
 ```
 
