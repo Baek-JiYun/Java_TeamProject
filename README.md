@@ -19,7 +19,7 @@
 - 만약 아이디와 패스워드가 일치하지 않는다면 메인메뉴로 되돌아갑니다.
 - 로그인 이후 서브메뉴에서 예매,조회,회원정보조회가 가능합니다.
 
-```
+```java
 ///Main_Controller.java
 					check = false;
 					System.out.print("아이디 입력 >>");
@@ -53,7 +53,7 @@
 - DB에 저장된 상영중인 영화정보를 가져오고 예매된 자리라면 | * |로 표시됩니다.
 - 예매 시 회원의 나이가 관람 가능 연령보다 어리다면 예매되지 않습니다.
 
-```
+```java
 
 //나이제한
 for (int i = 0; i < dtos2.size(); i++) {
@@ -73,7 +73,7 @@ for (int i = 0; i < dtos2.size(); i++) {
 				}
 ```
 
-```
+```java
 //영화 예매
 System.out.print("원하시는 시간을 입력해주세요 >>");
 		String timechoice = sc.next();
@@ -108,7 +108,7 @@ System.out.print("원하시는 시간을 입력해주세요 >>");
 
 #### * 영화예매조회
 
-```
+```java
 	public static void subMenu() {
 		System.out.println();
 		System.out.println("1.회원정보조회");
@@ -121,7 +121,7 @@ System.out.print("원하시는 시간을 입력해주세요 >>");
 - 서브메뉴에서 한번 더 비밀번호 확인 후 일치하다면 예매정보조회가 가능합니다.
 - 예매정보가 없다면 서브메뉴로 다시 돌아갑니다.
 
-```
+```java
 // 영화예매정보
 dtos2 = service2.getAllMovie();
 check = false;
