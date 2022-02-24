@@ -1,23 +1,27 @@
-# 💡 Java+DB 영화예매 프로그램
-- Eclipse를 사용해 진행하였습니다.
-- DataBase는 Oracle을 사용해 진행하였습니다.
+# 🎥 Java+DB 영화예매 프로그램
+- <b>Language</b> : <img alt="JAVA" src="https://img.shields.io/badge/JAVA-007396?style=flat-square&logo=java&logoColor=white"/>
+- <b>Database</b> : <img alt="Oracle" src ="https://img.shields.io/badge/Oracle-%23F00000.svg?style=flat-square&logo=oracle&logoColor=white" />
+- <b>Tool</b> : <img alt="Eclipse IDE" src="https://img.shields.io/badge/Eclipse IDE-2C2255?style=flat-square&logo=Eclipse IDE&logoColor=white"/>
+- 자바 콘솔로만 작동하는 프로그램입니다.
 
 <br>
 
-# <제작기간 및 개발인원>
+## 🔖 제작기간 및 개발인원
 - 기간 : 2021.10 ~ 2021.10 (약 1주)
 - 인원 : 3명
-- 담당 역할 : 회원기능(가입, 탈퇴), 로그인 및 영화 좌석 조회, 예매 기능
 
 <br>
 
-## <주요 기능>
+## 🔖 주요 기능
 
-#### *메인메뉴
-- 회원가입 및 탈퇴, 로그인 및 상영중인 영화정보를 조회할 수 있습니다.
-- 아이디와 패스워드가 일치하면 회원정보변경도 가능합니다.
-- 만약 아이디와 패스워드가 일치하지 않는다면 메인메뉴로 되돌아갑니다.
-- 로그인 이후 서브메뉴에서 예매,조회,회원정보조회가 가능합니다.
+#### 🔸 메인메뉴
+- <b>메뉴 선택</b> : 메뉴만 출력해주는 메소드를 따로 만들어 필요할때마다 출력함
+- <b>회원가입 / 로그인 / 로그아웃 / 정보수정</b> : 회원 관련 기능, 로그인 이후 예매 기능 사용가능
+- <b>상영중인 영화정보</b> : 로그인하지 않아도 데이터베이스에서 영화정보를 불러와 영화정보 확인 가능
+
+<details>
+<summary>코드보기</summary>
+<div markdown="1">
 
 ```java
 ///Main_Controller.java
@@ -48,11 +52,18 @@ public static void Menu() {
 
 }
 ```
+				
+</div>
+</details>
 
-#### * 영화예매
+#### 🔸 영화예매
 - DB에 저장된 상영중인 영화정보를 가져오고 예매된 자리라면 | * |로 표시됩니다.
 - 예매 시 회원의 나이가 관람 가능 연령보다 어리다면 예매되지 않습니다.
 
+<details>
+<summary>코드보기</summary>
+<div markdown="1">
+	
 ```java
 
 //나이제한
@@ -105,8 +116,12 @@ for (int i = 0; i < dtos2.size(); i++) {
 
 	break;
 ```
+				 
+</div>
+</details>
 
-#### * 영화예매조회
+
+#### 🔸 영화예매조회
 
 ```java
 public static void subMenu() {
