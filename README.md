@@ -19,6 +19,8 @@
 - <b>회원가입 / 로그인 / 로그아웃 / 정보수정</b> : 회원 관련 기능, 로그인 이후 예매 기능 사용가능
 - <b>상영중인 영화정보</b> : 로그인하지 않아도 데이터베이스에서 영화정보를 불러와 영화정보 확인 가능
 
+<img src="img/main.PNG" width="200" height="390" >
+
 <details>
 <summary>코드보기</summary>
 <div markdown="1">
@@ -60,6 +62,9 @@ public static void Menu() {
 - DB에 저장된 상영중인 영화정보를 가져오고 예매된 자리라면 | * |로 표시됩니다.
 - 예매 시 회원의 나이가 관람 가능 연령보다 어리다면 예매되지 않습니다.
 
+<img src="img/sub.PNG" width="220" height="380" >
+
+	
 <details>
 <summary>코드보기</summary>
 <div markdown="1">
